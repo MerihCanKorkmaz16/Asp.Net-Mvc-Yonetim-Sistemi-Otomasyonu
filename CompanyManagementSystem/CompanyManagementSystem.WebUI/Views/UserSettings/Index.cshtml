@@ -1,0 +1,210 @@
+﻿@model CompanyManagementSystem.WebUI.Models.UserSettingsModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_CoreTemplate.cshtml";
+}
+@if (TempData["Success"] != null)
+{
+    <script type="text/javascript">
+    Swal.fire(
+         'Başarılı',
+         '@TempData["Success"]',
+         'success'
+)
+
+    </script>
+}
+@if (TempData["Error"] != null)
+{
+    <script type="text/javascript">
+    Swal.fire(
+         'Başarısız',
+         '@TempData["Error"]',
+         'error'
+)
+
+    </script>
+}
+
+<br />
+<div class="alert alert-success" style="text-align:center">
+    Sistemde @ViewBag.UserCount kayıtlı kullanıcı vardır!
+</div>
+<br />
+<div class="alert alert-info" style="text-align:center">
+    <button type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary">Kullanıcı Ekle</button>
+</div>
+<table class="table table-condensed">
+    <thead>
+        <tr>
+            <th scope="col">Ad Soyad</th>
+            <th scope="col">E Mail Adresi</th>
+            <th scope="col">Yetkisi</th>
+            <th scope="col">Kullanıcı Adı</th>
+            <th scope="col">Sil</th>
+            <th scope="col">Güncelle</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Details)
+        {
+
+            <tr>
+                <td>@item.FirstName @item.LastName</td>
+                <td>@item.Email</td>
+                <td>@item.RoleName</td>
+                <td>@item.UserName</td>
+                <td><a href="~/UserSettings/KullanıcıSilme/?userId=@item.UserId" id="persondeleteBtn" onclick="return confirm(this)"><i class="fas fa-trash-alt"></i>  Sil</a></td>
+                <td>
+                    <a href="#" class="view" data-target="/UserSettings/KullanıcıGüncelle/@item.UserId"><i class="fas fa-user-edit"></i> Güncelle</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+
+
+
+
+@*Kullanıcı Ekleme Moddalı*@
+@using (Html.BeginForm("KullanıcıEkle", "UserSettings", FormMethod.Post))
+{
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Kullanıcı Ekle</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                @Html.AntiForgeryToken()
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="username" class="col-4 col-form-label">Kullanıcı Adı</label>
+                        @Html.TextBoxFor(m => m.User.Username, new { @class = "form-control", @placeholder = "Kullanıcı Adı", @required = "required", autocomplete = "off" })
+                    </div>
+                    <div class="form-group">
+                        <label for="username" class="col-8 col-form-label">Ad</label>
+                        <div class="col-12">
+                            @Html.TextBoxFor(m => m.User.FirstName, new { @class = "form-control", @placeholder = "Ad", @required = "required", autocomplete = "off" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="username" class="col-8 col-form-label">Soyad</label>
+                        <div class="col-12">
+                            @Html.TextBoxFor(m => m.User.LastName, new { @class = "form-control", @placeholder = "Soyad", @required = "required", autocomplete = "off" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="username" class="col-8 col-form-label">E mail</label>
+                        <div class="col-12">
+                            @Html.TextBoxFor(m => m.User.Email, new { @class = "form-control", @placeholder = "örnek@gmail.com", @required = "required", autocomplete = "off", @type = "email" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="username" class="col-8 col-form-label">Şifre</label>
+                        <div class="col-12">
+                            @Html.TextBoxFor(m => m.User.Password, new { @class = "form-control", @placeholder = "Şifre", @type = "password", @required = "required", autocomplete = "off" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="username" class="col-8 col-form-label">Kullanıcı Yetkisi</label>
+                        <div class="col-12">
+                            @Html.DropDownListFor(model => model.RoleId, new SelectList(Model.Roles, "RoleId", "RoleName"), new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" id="addpersonBtn" class="btn btn-primary">Kullanıcıyı Ekle</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
+@*Dynamic modalım*@
+<div class="modal fade" id="modelView" tabindex="-1" role="dialog" aria-labelledby="modelViewLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Kullanıcı Güncelle</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+
+<script>
+    function confirm(persondeleteBtn) {
+        if (persondeleteBtn.dataset.confirmed) {
+            // The action was already confirmed by the user, proceed with server event
+            persondeleteBtn.dataset.confirmed = false;
+            return true;
+        }
+        else {
+            event.preventDefault();
+            Swal.fire({
+                title: 'DİKKAT!',
+                text: "Kullanıcı silmek istediğinize emin misiniz?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Onayla'
+            }).then((result) => {
+                if (result.value) {
+                    persondeleteBtn.dataset.confirmed = true;
+                    // Trigger button click programmatically
+                    persondeleteBtn.click();
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Kullanıcı başarıyla silindi',
+                        showConfirmButton: false,
+                        timer: 4000
+                    })
+                }
+            })
+        }
+    }
+    $(function () {
+        // a tagimizde bulunan .view classımıza click olduğunda
+        $("body").on("click", ".view", function () {
+            //data-target dan url mizi al
+            var url = $(this).data("target");
+            //bu urlimizi post et
+            $.post(url, function (data) { })
+                //eğer işlemimiz başarılı bir şekilde gerçekleşirse
+                .done(function (data) {
+                    //gelen datayı .modal-body mizin içerise html olarak ekle
+                    $("#modelView .modal-body").html(data);
+                    //sonra da modalimizi göster
+                    $("#modelView").modal("show");
+                })
+                //eğer işlem başarısız olursa
+                .fail(function () {
+                    //modalımızın bodysine Error! yaz
+                    $("#modelView .modal-body").text("Error!!");
+                    //sonra da modalimizi göster
+                    $("#modelView").modal("show");
+                })
+
+        });
+    })
+
+</script>

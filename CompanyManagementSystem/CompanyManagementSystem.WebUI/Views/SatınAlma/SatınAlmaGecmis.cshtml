@@ -1,0 +1,59 @@
+﻿@model List<CompanyManagementSystem.Entities.Concrete.AlımTablosu>
+@{
+    ViewBag.Title = "SatınAlmaGecmis";
+    Layout = "~/Views/Shared/_CoreTemplate.cshtml";
+}
+<br />
+<div class="card border-info">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
+                <h4 style="text-align:center">Satın Alma Geçmişim</h4>
+                <hr>
+            </div>
+        </div>
+        <div class="row" style="margin-left:0px;margin-right:0px;">
+            <div class="col-md-12">
+                @if (Model.Count() == 0)
+                {
+                    <div class="alert alert-info" style="text-align:center">
+                        Satın almanız bulunmamaktadır!
+                    </div>
+                }
+                else
+                {
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th scope="col">Firma Adı</th>
+                                <th scope="col">Ürün</th>
+                                <th scope="col">Tutar</th>
+                                <th scope="col">İşlem Tarihi</th>
+                                <th scope="col">Fatura</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.FirmaAdi</td>
+                                    <td>@item.Urün</td>
+                                    <td>@item.Tutar.ToString("c")</td>
+                                    <td>@item.IslemTarihi.ToString("dd/MM/yyyy")</td>
+                                    <td>
+                                        @Html.ActionLink("İndir", "DownloadFatura", new { faturaıd = item.FaturaId },new {@target="_blank"})
+                                    <td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+
+                }
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+

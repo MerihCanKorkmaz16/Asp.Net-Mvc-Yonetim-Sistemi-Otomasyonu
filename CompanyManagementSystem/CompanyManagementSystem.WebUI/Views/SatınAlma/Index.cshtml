@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_CoreTemplate.cshtml";
+}
+<br />
+@if (TempData["Success"] != null)
+{
+    <script type="text/javascript">
+    Swal.fire(
+         'Başarılı',
+         '@TempData["Success"]',
+         'success'
+)
+
+    </script>
+}
+<br />
+@Html.ValidationSummary(false,"Hatalarınızı düzeltiniz.")
+@using (Html.BeginForm("ÜrünKaydet", "SatınAlma", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="card border-info">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 style="text-align:center">Ürün Detayları</h4>
+                    <hr>
+                </div>
+            </div>
+            <div class="row" style="margin-left:0px;margin-right:0px;">
+                <div class="col-md-12">
+                    <form>
+                        <input type="hidden" name="IslemTarihi" value='@DateTime.Now' />
+                        <div class="form-group row">
+                            <label for="username" class="col-4 col-form-label">Firma Adı</label>
+                            <div class="col-8">
+                                <input name="firmaadi" id="firmaadi" type="text" class="form-control" placeholder="Firma adını giriniz"  autocomplete="off" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="username" class="col-4 col-form-label">Ürün Adı</label>
+                            <div class="col-8">
+                                <input name="urün" id="urün" type="text" class="form-control" placeholder="Ürün adını giriniz"   autocomplete="off"  />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="name" class="col-4 col-form-label">Tutar</label>
+                            <div class="col-8">
+                                <input name="tutar" id="tutar" type="number" class="form-control" placeholder="Ürünün tutarı giriniz"   autocomplete="off"  />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="lastname" class="col-4 col-form-label">Fatura dosyası(pdf)</label>
+                            <div class="col-8">
+                                <input type="file" placeholder="Faturayı giriniz(pdf)" class="form-control-file" name="files" id="files"  />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="offset-4 col-8">
+                                <button name="submit" type="submit" class="btn btn-primary">İşlemi kaydet</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+}
+

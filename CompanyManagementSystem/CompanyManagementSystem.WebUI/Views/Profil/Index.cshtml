@@ -1,0 +1,133 @@
+﻿@model CompanyManagementSystem.Entities.Concrete.User
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_CoreTemplate.cshtml";
+}
+
+<br />
+@if (TempData["SuccessAlert"] != null)
+{
+    <div style="text-align:center" class="alert alert-success">@TempData["SuccessAlert"]</div>
+}
+@using (Html.BeginForm("ProfilGüncelle", "Profil", FormMethod.Post))
+{@Html.AntiForgeryToken()
+<br />
+<div class="card border-info">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
+                <h4 style="text-align:center">Profil Bilgilerim</h4>
+                <hr>
+            </div>
+        </div>
+        <div class="row" style="margin-left:0px;margin-right:0px;">
+            <div class="col-md-12">
+                <form>
+                    <div class="form-group row">
+                        <label for="username" class="col-4 col-form-label">Kullanıcı Adınız</label>
+                        <div class="col-8">
+                            @Html.TextBoxFor(m => m.Username, new { @class = "form-control", @placeholder = "Kullanıcı Adı" })
+                            @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="name" class="col-4 col-form-label">İsminiz</label>
+                        <div class="col-8">
+                            @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", @placeholder = "İsminiz" })
+                            @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="lastname" class="col-4 col-form-label">Soy İsminiz</label>
+                        <div class="col-8">
+                            @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", @placeholder = "Soy adınız" })
+                            @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="text" class="col-4 col-form-label">E Mail Adresiniz</label>
+                        <div class="col-8">
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "örnek@gmail.com" })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    @Html.HiddenFor(m => m.RoleId)
+                    @Html.HiddenFor(m => m.UserId)
+                    @Html.HiddenFor(m => m.Password)
+                    <div class="form-group row">
+                        <div class="offset-4 col-8">
+                            <button name="submit" type="submit" class="btn btn-primary">Profil Bilgilerimi Güncelleştir</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+}
+<br />
+@if (TempData["SuccessAlert2"] != null)
+{
+    <div style="text-align:center" class="alert alert-success">@TempData["SuccessAlert2"]</div>
+}
+<br />
+@using (Html.BeginForm("ProfilSifreGüncelle", "Profil", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(x => x.Username)
+    @Html.HiddenFor(x => x.FirstName)
+    @Html.HiddenFor(x => x.LastName)
+    @Html.HiddenFor(x => x.Email)
+    @Html.HiddenFor(m => m.RoleId)
+    @Html.HiddenFor(m => m.UserId)
+
+
+
+    @*Şifre İşlemleri*@
+    <div class="card border-info">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 style="text-align:center">Şifre İşlemlerim</h4>
+                    <hr>
+                </div>
+            </div>
+            <div class="row" style="margin-left:0px;margin-right:0px;">
+                <div class="col-md-12">
+                    <form>
+                        <div class="form-group row">
+                            <label for="username" class="col-4 col-form-label">Mevcut Şifreniz</label>
+                            <div class="col-8">
+                                <input type="password" placeholder="Mevcut Şifreniz" class="form-control" name="inputpassword" id="inputpassword" required autocomplete="off" />
+                                @Html.ValidationMessage("PassError", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="name" class="col-4 col-form-label">Yeni Şifre</label>
+                            <div class="col-8">
+                                <input type="password" placeholder="Yeni Şifreniz" class="form-control" name="Password" id="Password" required autocomplete="off" />
+                                @Html.ValidationMessageFor(x => x.Password, "", new { @class = "text-danger" })
+
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="name" class="col-4 col-form-label">Yeni Şifre Tekrar</label>
+                            <div class="col-8">
+                                <input type="password" placeholder="Yeni Şifreniz tekrar" class="form-control" name="ConfirmPassword" id="ConfirmPassword" required autocomplete="off" />
+                                @Html.ValidationMessage("ConfirmError", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="offset-4 col-8">
+                                <button name="submit" type="submit" class="btn btn-primary">Şifremi Güncelle</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+}
+

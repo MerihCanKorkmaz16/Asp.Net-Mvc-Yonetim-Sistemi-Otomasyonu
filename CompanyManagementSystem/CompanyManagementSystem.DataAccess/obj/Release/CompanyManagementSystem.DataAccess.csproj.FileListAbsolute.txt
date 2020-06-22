@@ -1,0 +1,14 @@
+C:\Users\ass\source\repos\CompanyManagementSystem\CompanyManagementSystem.DataAccess\bin\Release\CompanyManagementSystem.DataAccess.dll.config
+C:\Users\ass\source\repos\CompanyManagementSystem\CompanyManagementSystem.DataAccess\bin\Release\CompanyManagementSystem.DataAccess.dll
+C:\Users\ass\source\repos\CompanyManagementSystem\CompanyManagementSystem.DataAccess\bin\Release\CompanyManagementSystem.DataAccess.pdb
+C:\Users\ass\source\repos\CompanyManagementSystem\CompanyManagementSystem.DataAccess\bin\Release\CompanyManagementSystem.Entities.dll
+C:\Users\ass\source\repos\CompanyManagementSystem\CompanyManagementSystem.DataAccess\bin\Release\EntityFramework.dll
+C:\Users\ass\source\repos\CompanyManagementSystem\CompanyManagementSystem.DataAccess\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\ass\source\repos\CompanyManagementSystem\CompanyManagementSystem.DataAccess\bin\Release\CompanyManagementSystem.Entities.pdb
+C:\Users\ass\source\repos\CompanyManagementSystem\CompanyManagementSystem.DataAccess\bin\Release\CompanyManagementSystem.Entities.dll.config
+C:\Users\ass\source\repos\CompanyManagementSystem\CompanyManagementSystem.DataAccess\bin\Release\EntityFramework.xml
+C:\Users\ass\source\repos\CompanyManagementSystem\CompanyManagementSystem.DataAccess\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\ass\source\repos\CompanyManagementSystem\CompanyManagementSystem.DataAccess\obj\Release\CompanyManagementSystem.DataAccess.csprojAssemblyReference.cache
+C:\Users\ass\source\repos\CompanyManagementSystem\CompanyManagementSystem.DataAccess\obj\Release\CompanyManagementSystem.DataAccess.csproj.CopyComplete
+C:\Users\ass\source\repos\CompanyManagementSystem\CompanyManagementSystem.DataAccess\obj\Release\CompanyManagementSystem.DataAccess.dll
+C:\Users\ass\source\repos\CompanyManagementSystem\CompanyManagementSystem.DataAccess\obj\Release\CompanyManagementSystem.DataAccess.pdb

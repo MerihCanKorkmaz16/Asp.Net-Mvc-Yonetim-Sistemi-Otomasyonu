@@ -1,0 +1,46 @@
+﻿@model List<CompanyManagementSystem.Entities.Concrete.ComplexType.DuyuruDetails>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_CoreTemplate.cshtml";
+    int i = 1;
+    int durumsayac = 0;
+}
+
+<br />
+
+@foreach (var item in Model)
+{
+    if (item.Durum == true)
+    {
+        <div class="card border-info">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4 style="text-align:center"><i class="fas fa-edit"></i> @i.ToString() .Duyuru</h4>
+                        <hr>
+                    </div>
+                </div>
+                <div class="row" style="margin-left:0px;margin-right:0px;text-align:center">
+                    <div class="col-md-12">
+                        @item.DuyuruContext
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <br />
+        i += 1;
+        durumsayac += 1;
+    }
+
+}
+@if (durumsayac == 0)
+{
+
+    <div class="alert alert-success" style="text-align:center;">
+        Herhangi bir duyurunuz bulunmamaktadır!
+    </div>
+
+}
+
+

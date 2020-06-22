@@ -1,0 +1,12 @@
+C:\Users\ass\source\repos\CompanyManagementSystem\CompanyManagementSystem.Entities\bin\Debug\CompanyManagementSystem.Entities.dll.config
+C:\Users\ass\source\repos\CompanyManagementSystem\CompanyManagementSystem.Entities\bin\Debug\CompanyManagementSystem.Entities.dll
+C:\Users\ass\source\repos\CompanyManagementSystem\CompanyManagementSystem.Entities\bin\Debug\CompanyManagementSystem.Entities.pdb
+C:\Users\ass\source\repos\CompanyManagementSystem\CompanyManagementSystem.Entities\bin\Debug\EntityFramework.dll
+C:\Users\ass\source\repos\CompanyManagementSystem\CompanyManagementSystem.Entities\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ass\source\repos\CompanyManagementSystem\CompanyManagementSystem.Entities\bin\Debug\EntityFramework.xml
+C:\Users\ass\source\repos\CompanyManagementSystem\CompanyManagementSystem.Entities\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ass\source\repos\CompanyManagementSystem\CompanyManagementSystem.Entities\obj\Debug\CompanyManagementSystem.Entities.csprojAssemblyReference.cache
+C:\Users\ass\source\repos\CompanyManagementSystem\CompanyManagementSystem.Entities\obj\Debug\CompanyManagementSystem.Entities.csproj.CopyComplete
+C:\Users\ass\source\repos\CompanyManagementSystem\CompanyManagementSystem.Entities\obj\Debug\CompanyManagementSystem.Entities.dll
+C:\Users\ass\source\repos\CompanyManagementSystem\CompanyManagementSystem.Entities\obj\Debug\CompanyManagementSystem.Entities.pdb
+C:\Users\ass\source\repos\CompanyManagementSystem\CompanyManagementSystem.Entities\obj\Debug\CompanyManagementSystem.Entities.csproj.CoreCompileInputs.cache

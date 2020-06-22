@@ -1,0 +1,15 @@
+C:\Users\ass\source\repos\CompanyManagementSystem\CompanyManagementSystem.DataAccess\bin\Debug\CompanyManagementSystem.DataAccess.dll.config
+C:\Users\ass\source\repos\CompanyManagementSystem\CompanyManagementSystem.DataAccess\bin\Debug\CompanyManagementSystem.DataAccess.dll
+C:\Users\ass\source\repos\CompanyManagementSystem\CompanyManagementSystem.DataAccess\bin\Debug\CompanyManagementSystem.DataAccess.pdb
+C:\Users\ass\source\repos\CompanyManagementSystem\CompanyManagementSystem.DataAccess\bin\Debug\CompanyManagementSystem.Entities.dll
+C:\Users\ass\source\repos\CompanyManagementSystem\CompanyManagementSystem.DataAccess\bin\Debug\EntityFramework.dll
+C:\Users\ass\source\repos\CompanyManagementSystem\CompanyManagementSystem.DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ass\source\repos\CompanyManagementSystem\CompanyManagementSystem.DataAccess\bin\Debug\CompanyManagementSystem.Entities.pdb
+C:\Users\ass\source\repos\CompanyManagementSystem\CompanyManagementSystem.DataAccess\bin\Debug\CompanyManagementSystem.Entities.dll.config
+C:\Users\ass\source\repos\CompanyManagementSystem\CompanyManagementSystem.DataAccess\bin\Debug\EntityFramework.xml
+C:\Users\ass\source\repos\CompanyManagementSystem\CompanyManagementSystem.DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ass\source\repos\CompanyManagementSystem\CompanyManagementSystem.DataAccess\obj\Debug\CompanyManagementSystem.DataAccess.csprojAssemblyReference.cache
+C:\Users\ass\source\repos\CompanyManagementSystem\CompanyManagementSystem.DataAccess\obj\Debug\CompanyManagementSystem.DataAccess.csproj.CopyComplete
+C:\Users\ass\source\repos\CompanyManagementSystem\CompanyManagementSystem.DataAccess\obj\Debug\CompanyManagementSystem.DataAccess.dll
+C:\Users\ass\source\repos\CompanyManagementSystem\CompanyManagementSystem.DataAccess\obj\Debug\CompanyManagementSystem.DataAccess.pdb
+C:\Users\ass\source\repos\CompanyManagementSystem\CompanyManagementSystem.DataAccess\obj\Debug\CompanyManagementSystem.DataAccess.csproj.CoreCompileInputs.cache

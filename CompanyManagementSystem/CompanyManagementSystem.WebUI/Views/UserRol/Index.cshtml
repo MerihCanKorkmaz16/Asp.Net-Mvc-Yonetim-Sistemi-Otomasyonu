@@ -1,0 +1,90 @@
+﻿@model List<CompanyManagementSystem.Entities.Concrete.UserRole>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_CoreTemplate.cshtml";
+}
+@if (TempData["Success"] != null)
+{
+    <script type="text/javascript">
+    Swal.fire(
+         'Başarılı',
+         '@TempData["Success"]',
+         'success'
+)
+    </script>
+}
+<br />
+<div class="alert alert-success" style="text-align:center">
+    Sistemde @ViewBag.RoleCount kayıtlı kullanıcı yetkisi vardır!
+</div>
+<br />
+@using (Html.BeginForm())
+{
+    <div class="alert alert-info" style="text-align:center">
+        @Html.AntiForgeryToken()
+        <input type="text" name="RoleName" id="RoleName" placeholder="Kullanıcı yetkisi yazınız." required class="form-control" autocomplete="off" />
+        <br />
+        <button type="submit" class="btn btn-primary">Kullanıcı Yetki Ekle</button>
+    </div>
+
+}
+<table class="table table-condensed">
+    <thead>
+        <tr>
+            <th scope="col">Yetki ID Numarası</th>
+            <th scope="col">Yetki ismi</th>
+            <th scope="col">Sil</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>@item.RoleId</td>
+                <td>@item.RoleName</td>
+
+                <td><a href="~/UserRol/RolSilme/?rolıd=@item.RoleId" id="persondeleteBtn" onclick="return confirm(this)"><i class="fas fa-trash-alt"></i>  Sil</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+
+<script>
+    function confirm(persondeleteBtn) {
+        if (persondeleteBtn.dataset.confirmed) {
+            // The action was already confirmed by the user, proceed with server event
+            persondeleteBtn.dataset.confirmed = false;
+            return true;
+        }
+        else {
+            event.preventDefault();
+            Swal.fire({
+                title: 'DİKKAT!',
+                text: "Kullanıcı yetkisini silmek istediğinize emin misiniz?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Onayla'
+            }).then((result) => {
+                if (result.value) {
+                    persondeleteBtn.dataset.confirmed = true;
+                    // Trigger button click programmatically
+                    persondeleteBtn.click();
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Kullanıcı yetkisi başarıyla silindi',
+                        showConfirmButton: false,
+                        timer: 4000
+                    })
+                }
+            })
+        }
+    }
+
+</script>

@@ -1,0 +1,83 @@
+﻿@model CompanyManagementSystem.Entities.Concrete.User
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Giris</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script type="text/javascript">
+        function capLock(event) {
+            var ikeycode = (event.which) ? event.which : event.keyCode
+            if (!((ikeycode < 65 || ikeycode > 90))) {
+                document.getElementById("demo").innerHTML = "Dikkat Caps Lock tuşu açık!";
+                document.getElementById("demo").style.color = "Red";
+                return true;
+            } else {
+                document.getElementById("demo").innerHTML = "";
+                return true;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div id="loginbox" style="margin-top:150px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <div class="panel-title" style="text-align:center">Welcome to Company Management System</div>
+                </div>
+
+                <div style="padding-top:30px" class="panel-body">
+                    @if (ViewBag.LoginError != null)
+                    {
+                        <div id="login-alert" class="alert alert-danger col-sm-12" style="text-align:center">@ViewBag.LoginError</div>
+
+                    }
+                    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                    @using (Html.BeginForm())
+                    {
+                        <div style="margin-bottom: 25px" class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input id="login-username" type="text" class="form-control" name="username" value="" placeholder="Kullanıcı adınız" autocomplete="off">
+                        </div>
+                        <div style="margin-bottom: 25px" class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                            <input id="login-password" type="password" class="form-control" name="password" placeholder="Şifreniz" onkeypress="javascript:return capLock(event)" maxlength="15">
+                            <div id="demo" style="text-align:center"></div>
+                        </div>
+                        <div class="input-group">
+                            <div class="checkbox">
+                                <label>
+                                    <input id="login-remember" type="checkbox" name="remember" value="1"> Beni Hatırla
+                                </label>
+                            </div>
+                        </div>
+
+                        <div style="margin-top:10px" class="form-group">
+
+                            <div class="col-sm-12 controls">
+                                <input type="submit" class="btn btn-primary" value="Giriş" onclick="this.value=(this.value=='Giriş')?('Giriş Yapılıyor...'):('Giriş')" />
+                            </div>
+                        </div>
+
+                    }
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="page-footer font-small blue">
+
+        <div class="footer-copyright text-center py-3">
+            © 2020 Copyright:
+            Merih Can Korkmaz
+        </div>
+    </footer>
+</body>
+</html>
